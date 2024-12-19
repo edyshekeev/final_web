@@ -1,15 +1,22 @@
+import React from 'react';
+import Login from './components/Login';
+import PostList from './components/PostList';
+import CreatePost from './components/CreatePost';
+import PostDetail from './components/PostDetail';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import PostDetails from './pages/PostDetails';
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/post/:id" element={<PostDetails />} />
-      </Routes>
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<PostList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/posts/create" element={<CreatePost />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
